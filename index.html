@@ -12,12 +12,13 @@
       padding: 0;
     }
 
-    /* FULL-BLEED SLIDESHOW */
+    /* FULL-WIDTH, HALF-SCREEN SLIDESHOW */
     .slideshow {
       position: relative;
       width: 100vw;
-      height: 120vh; /* roughly DOUBLE height */
-      min-height: 700px;
+      height: 50vh;           /* roughly HALF the screen */
+      min-height: 320px;
+      max-height: 520px;
       overflow: hidden;
     }
 
@@ -43,7 +44,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
-      font-size: 4rem;
+      font-size: 3.6rem;
       font-weight: 900;
       text-align: center;
       line-height: 1.1;
@@ -53,18 +54,18 @@
       pointer-events: none;
     }
 
-    /* CONTENT CONTAINER */
+    /* CONTENT CONTAINER (BELOW SLIDESHOW) */
     .container {
       max-width: 900px;
-      margin: -80px auto 0; /* pulls content slightly over slideshow */
+      margin: 24px auto 0;   /* NO overlap */
       background: white;
-      padding: 28px 20px 32px;
+      padding: 28px 20px 36px;
       border-radius: 14px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
 
     .details {
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       line-height: 1.7;
     }
 
@@ -87,14 +88,14 @@
       line-height: 1.1;
     }
 
-    /* DESKTOP ENHANCEMENTS */
+    /* LARGER SCREENS */
     @media (min-width: 768px) {
       .slideshow {
-        height: 110vh;
+        height: 45vh;
       }
 
       .slideshow-title {
-        font-size: 5rem;
+        font-size: 4.5rem;
       }
 
       .details {
@@ -110,7 +111,7 @@
 
 <body>
 
-  <!-- FULL-BLEED SLIDESHOW -->
+  <!-- SLIDESHOW -->
   <div class="slideshow">
     <div class="slideshow-title">Hardangerfjord Getaway</div>
 
