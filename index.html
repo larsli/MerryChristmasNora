@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hardangerfjord Getaway 3</title>
+  <title>Hardangerfjord Getaway</title>
 
   <style>
     body {
@@ -111,6 +111,10 @@
 
 <body>
 
+  <audio id="bg-music" autoplay loop>
+  <source src="Taketones_Nostalgia.mp3" type="audio/mpeg">
+</audio>
+
   <!-- SLIDESHOW -->
   <div class="slideshow">
     <div class="slideshow-title">Hardangerfjord Getaway</div>
@@ -160,6 +164,16 @@
       slides[currentSlide].classList.add('active');
     }, 4000);
   </script>
+
+  <script>
+  const music = document.getElementById('bg-music');
+
+  document.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+    }
+  }, { once: true });
+</script>
 
 </body>
 </html>
