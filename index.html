@@ -10,29 +10,15 @@
       background: #f5f7fa;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
     }
 
-    .container {
-      width: 100%;
-      max-width: 900px;
-      background: white;
-      margin: 0;
-      padding: 16px;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    /* Slideshow */
+    /* FULL-BLEED SLIDESHOW */
     .slideshow {
       position: relative;
-      width: 100%;
-      height: 60vh; /* BIG on mobile */
-      min-height: 360px;
+      width: 100vw;
+      height: 120vh; /* roughly DOUBLE height */
+      min-height: 700px;
       overflow: hidden;
-      border-radius: 12px;
-      margin-bottom: 28px;
     }
 
     .slideshow img {
@@ -50,71 +36,73 @@
       opacity: 1;
     }
 
-    /* Title overlay */
+    /* TITLE OVER SLIDESHOW */
     .slideshow-title {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
-      font-size: 3.2rem;
-      font-weight: 800;
+      font-size: 4rem;
+      font-weight: 900;
       text-align: center;
       line-height: 1.1;
-      text-shadow: 0 6px 16px rgba(0,0,0,0.75);
+      text-shadow: 0 6px 20px rgba(0,0,0,0.8);
       z-index: 2;
+      padding: 0 16px;
       pointer-events: none;
-      padding: 0 10px;
     }
 
-    /* Text content */
+    /* CONTENT CONTAINER */
+    .container {
+      max-width: 900px;
+      margin: -80px auto 0; /* pulls content slightly over slideshow */
+      background: white;
+      padding: 28px 20px 32px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
     .details {
-      font-size: 1.35rem; /* BIG body text */
-      line-height: 1.65;
+      font-size: 1.4rem;
+      line-height: 1.7;
     }
 
     .details p {
-      margin-bottom: 1.2em;
+      margin-bottom: 1.3em;
     }
 
     .highlight {
-      font-weight: 700;
-      font-size: 1.5rem;
+      font-weight: 800;
+      font-size: 1.6rem;
     }
 
-    /* Christmas message */
+    /* CHRISTMAS MESSAGE */
     .christmas {
-      margin: 48px 0 24px;
+      margin-top: 56px;
       text-align: center;
-      font-size: 3.4rem;
+      font-size: 3.8rem;
       font-weight: 900;
       color: #c40000;
       line-height: 1.1;
     }
 
-    /* Larger screens */
+    /* DESKTOP ENHANCEMENTS */
     @media (min-width: 768px) {
-      .container {
-        margin: 20px;
-        padding: 24px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      }
-
       .slideshow {
-        height: 450px;
+        height: 110vh;
       }
 
       .slideshow-title {
-        font-size: 4rem;
+        font-size: 5rem;
       }
 
       .details {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
       }
 
       .christmas {
-        font-size: 3.8rem;
+        font-size: 4.2rem;
       }
     }
   </style>
@@ -122,19 +110,19 @@
 
 <body>
 
+  <!-- FULL-BLEED SLIDESHOW -->
+  <div class="slideshow">
+    <div class="slideshow-title">Hardangerfjord Getaway</div>
+
+    <img src="photo1.png" class="active" alt="Photo 1">
+    <img src="photo2.jpg" alt="Photo 2">
+    <img src="photo3.jpg" alt="Photo 3">
+    <img src="photo4.png" alt="Photo 4">
+  </div>
+
+  <!-- CONTENT -->
   <div class="container">
 
-    <!-- Slideshow -->
-    <div class="slideshow">
-      <div class="slideshow-title">Hardangerfjord Getaway</div>
-
-      <img src="photo1.png" class="active" alt="Photo 1">
-      <img src="photo2.jpg" alt="Photo 2">
-      <img src="photo3.jpg" alt="Photo 3">
-      <img src="photo4.png" alt="Photo 4">
-    </div>
-
-    <!-- Trip details -->
     <div class="details">
       <p class="highlight">
         Mark the date: 23rd of May to 25th of May (Saturday to Monday)
@@ -156,7 +144,6 @@
       </p>
     </div>
 
-    <!-- Christmas message -->
     <div class="christmas">
       Merry Christmas Nora 🎄
     </div>
