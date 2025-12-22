@@ -111,7 +111,7 @@
 
 <body>
 
-  <audio id="bg-music" autoplay loop>
+<audio id="bg-music" autoplay loop muted playsinline>
   <source src="Taketones_Nostalgia.mp3" type="audio/mpeg">
 </audio>
 
@@ -165,15 +165,21 @@
     }, 4000);
   </script>
 
-  <script>
+<script>
   const music = document.getElementById('bg-music');
 
-  document.addEventListener('click', () => {
-    if (music.paused) {
-      music.play();
-    }
-  }, { once: true });
+  const startMusic = () => {
+    music.muted = false;
+    music.volume = 0.5;
+    music.play();
+    document.removeEventListener('click', startMusic);
+    document.removeEventListener('touchstart', startMusic);
+  };
+
+  document.addEventListener('click', startMusic);
+  document.addEventListener('touchstart', startMusic);
 </script>
+
 
 </body>
 </html>
