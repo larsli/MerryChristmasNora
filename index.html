@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hardangerfjord Trip</title>
+  <title>Hardangerfjord Getaway</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -29,7 +30,7 @@
       height: 450px;
       overflow: hidden;
       border-radius: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .slideshow img {
@@ -37,6 +38,8 @@
       height: 100%;
       object-fit: cover;
       position: absolute;
+      top: 0;
+      left: 0;
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
@@ -45,11 +48,22 @@
       opacity: 1;
     }
 
-    /* Text content */
-    h1 {
-      margin-top: 0;
+    /* Title overlay */
+    .slideshow-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+      z-index: 2;
+      pointer-events: none;
     }
 
+    /* Text content */
     .details {
       font-size: 1.1rem;
       line-height: 1.6;
@@ -58,56 +72,86 @@
     .highlight {
       font-weight: bold;
     }
+
+    /* Christmas message */
+    .christmas {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #c40000;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      .slideshow {
+        height: 300px;
+      }
+
+      .slideshow-title {
+        font-size: 2.2rem;
+      }
+
+      .christmas {
+        font-size: 2.2rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <!-- Slideshow -->
-  <div class="slideshow">
-    <img src="photo1.png" class="active">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
-    <img src="photo4.png">
+    <!-- Slideshow -->
+    <div class="slideshow">
+      <div class="slideshow-title">Hardangerfjord Getaway</div>
+
+      <img src="photo1.png" class="active" alt="Photo 1">
+      <img src="photo2.jpg" alt="Photo 2">
+      <img src="photo3.jpg" alt="Photo 3">
+      <img src="photo4.png" alt="Photo 4">
+    </div>
+
+    <!-- Trip details -->
+    <div class="details">
+      <p class="highlight">
+        Mark the date: 23rd of May to 25th of May (Saturday to Monday)
+      </p>
+
+      <p>
+        We're going to see the apple (hopefully) tree blossom in Hardangerfjord
+        and stay at the <strong>Kinsarvik Camping</strong>.
+      </p>
+
+      <p>
+        We're staying in a <strong>Deluxe Bungalow with sea view</strong>.
+        Fruktstien at Lofthus is only a <strong>15 minutes drive away</strong>.
+      </p>
+
+      <p>
+        A <strong>motorboat is available to rent</strong>. We'll probably do some hiking,
+        maybe fishing and of course, enjoy the beautiful tree blossom.
+      </p>
+    </div>
+
+    <!-- Christmas message -->
+    <div class="christmas">
+      Merry Christmas Nora 🎄
+    </div>
+
   </div>
 
-  <!-- Text -->
-  <h1>Hardangerfjord Getaway 🌸</h1>
+  <script>
+    const slides = document.querySelectorAll('.slideshow img');
+    let currentSlide = 0;
 
-  <div class="details">
-    <p class="highlight">
-      Mark the date: 23rd of May to 25th of May (Saturday to Monday)
-    </p>
-
-    <p>
-      We're going to see the apple (hopefully) tree blossom in Hardangerfjord
-      and stay at the <strong>Kinsarvik Camping</strong>.
-    </p>
-
-    <p>
-      We're staying in a <strong>Deluxe Bungalow with sea view</strong>.
-      Fruktstien at Lofthus is only a <strong>15 minutes drive away</strong>.
-    </p>
-
-    <p>
-      A <strong>motorboat is available to rent</strong>. We'll probably do some hiking,
-      maybe fishing and of course, enjoy the beautiful tree blossom.
-    </p>
-  </div>
-
-</div>
-
-<script>
-  const slides = document.querySelectorAll('.slideshow img');
-  let currentSlide = 0;
-
-  setInterval(() => {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }, 4000); // change image every 4 seconds
-</script>
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 4000);
+  </script>
 
 </body>
 </html>
