@@ -5,6 +5,33 @@
   <title>Hardangerfjord Getaway</title>
 
   <style>
+/* MUSIC HINT OVERLAY */
+.music-hint {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.85;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  cursor: pointer;
+  z-index: 3;
+  user-select: none;
+}
+
+.music-hint:hover {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .music-hint {
+    font-size: 0.85rem;
+  }
+}
+
+
+    
     body {
       font-family: Arial, sans-serif;
       background: #f5f7fa;
@@ -118,13 +145,16 @@
   <!-- SLIDESHOW -->
   <div class="slideshow">
     <div class="slideshow-title">Hardangerfjord Getaway</div>
-
+  <div class="music-hint" id="music-hint">
+    tap for inspiring background music
+  </div>
     <img src="photo1.png" class="active" alt="Photo 1">
     <img src="photo2.jpg" alt="Photo 2">
     <img src="photo3.jpg" alt="Photo 3">
     <img src="photo4.png" alt="Photo 4">
     <img src="photo5.png" alt="Photo 5">
     <img src="photo6.png" alt="Photo 6">
+
   </div>
 
   <!-- CONTENT -->
@@ -167,18 +197,26 @@
 
 <script>
   const music = document.getElementById('bg-music');
+  const hint = document.getElementById('music-hint');
 
-  const startMusic = () => {
-    music.muted = false;
-    music.volume = 0.5;
-    music.play();
-    document.removeEventListener('click', startMusic);
-    document.removeEventListener('touchstart', startMusic);
+  const toggleMusic = () => {
+    if (music.paused) {
+      music.muted = false;
+      music.volume = 0.5;
+      music.play();
+      hint.textContent = 'tap to mute';
+    } else {
+      music.muted = !music.muted;
+      hint.textContent = music.muted
+        ? 'tap for inspiring background music'
+        : 'tap to mute';
+    }
   };
 
-  document.addEventListener('click', startMusic);
-  document.addEventListener('touchstart', startMusic);
+  document.addEventListener('click', toggleMusic);
+  document.addEventListener('touchstart', toggleMusic);
 </script>
+
 
 
 </body>
