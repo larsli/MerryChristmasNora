@@ -199,23 +199,27 @@
   const music = document.getElementById('bg-music');
   const hint = document.getElementById('music-hint');
 
+  let musicStarted = false;
+
   const toggleMusic = () => {
-    if (music.paused) {
+    if (!musicStarted) {
       music.muted = false;
       music.volume = 0.5;
       music.play();
+      musicStarted = true;
       hint.textContent = 'tap to mute';
-    } else {
-      music.muted = !music.muted;
-      hint.textContent = music.muted
-        ? 'tap for inspiring background music'
-        : 'tap to mute';
+      return;
     }
+
+    music.muted = !music.muted;
+    hint.textContent = music.muted
+      ? 'tap for inspiring background music'
+      : 'tap to mute';
   };
 
-  document.addEventListener('click', toggleMusic);
-  document.addEventListener('touchstart', toggleMusic);
+  document.addEventListener('pointerdown', toggleMusic);
 </script>
+
 
 
 
